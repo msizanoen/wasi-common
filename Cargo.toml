@@ -44,7 +44,6 @@ cfg-if = "0.1.9"
 
 [lib]
 name = "wasi_common"
-crate-type = ["rlib", "staticlib", "cdylib"]
 
 [workspace]
 members = ["wasi-common-cbindgen"]

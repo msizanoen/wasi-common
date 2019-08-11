@@ -228,7 +228,7 @@ pub(crate) fn dirent_from_host(host_entry: &nix::libc::dirent) -> Result<wasm32:
     if d_namlen > u32::max_value() as usize {
         return Err(host::__WASI_EIO);
     }
-    entry.d_ino = memory::enc_inode(host_entry.d_ino);
+    entry.d_ino = memory::enc_inode(host_entry.d_ino as u64);
     entry.d_next = memory::enc_dircookie(host_entry.d_off as u64);
     entry.d_namlen = memory::enc_u32(d_namlen as u32);
     entry.d_type = memory::enc_filetype(host_entry.d_type);
